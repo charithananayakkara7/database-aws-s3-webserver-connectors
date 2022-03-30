@@ -4,8 +4,11 @@ import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class   Awsconnector {
+    Logger logger = LogManager.getLogger(Awsconnector.class);
     private final AmazonS3 s3client;
     private String Accesskey;
     private String SecretKey;
@@ -19,6 +22,7 @@ public class   Awsconnector {
         AmazonS3ClientBuilder builder = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCredentials));
         builder.setRegion(Regionname);
         this.s3client = builder.build();
+        logger.info("AWS S3 connection established " + s3client);
         System.out.println("AWS S3 connection established " + s3client);
     }
 }
