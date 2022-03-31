@@ -1,5 +1,7 @@
 package com.base.page;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -12,8 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 public class BaseUnitPageLayer extends UnitPageLayer {
+    Logger logger = LogManager.getLogger(BaseUnitPageLayer.class);
     public WebDriver driver;
-    // public static final int TIME_OUT = 12;
     public static final int SLEEP_TIME_MILL = 8000;
     int CONFIG_TIME_OUT;
     public BaseUnitPageLayer(WebDriver driver,int TIME_OUT) {
@@ -71,7 +73,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             setTimeOut(TIME_OUT);
         }
         catch (NoSuchElementException e) {
-            // LoggerUtil.log(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
@@ -82,7 +84,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             setTimeOut(TIME_OUT);
         } catch (NoSuchElementException e) {
-            // LoggerUtil.log(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
@@ -93,7 +95,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, value));
             setTimeOut(TIME_OUT);
         } catch (NoSuchElementException e) {
-            // LoggerUtil.log(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
@@ -106,7 +108,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
             element.sendKeys(value);
         } catch (NoSuchElementException e) {
-            // LoggerUtil.log(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
@@ -130,7 +132,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             setTimeOut(TIME_OUT);
             element.clear();
         } catch (Exception ex) {
-            // LoggerUtil.log(e.getMessage());
+            logger.error(ex.getMessage());
         }
     }
 
