@@ -46,7 +46,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
 
         }
         throw new IllegalArgumentException(
-                "Invalid By Type, Please provide correct locator type");
+                "Please provide correct locator type");
     }
 
     @Override
@@ -71,6 +71,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             WebDriverWait wait = new WebDriverWait(driver, TIME_OUT);
             wait.until(ExpectedConditions.elementToBeClickable(locator));
             setTimeOut(TIME_OUT);
+            logger.info("Waited until element visibility "+locator);
         }
         catch (NoSuchElementException e) {
             logger.error(e.getMessage());
@@ -83,6 +84,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             WebDriverWait wait = new WebDriverWait(driver, TIME_OUT);
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             setTimeOut(TIME_OUT);
+            logger.info("Waited until element visibility "+locator);
         } catch (NoSuchElementException e) {
             logger.error(e.getMessage());
         }
@@ -94,6 +96,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             WebDriverWait wait = new WebDriverWait(driver, TIME_OUT);
             wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, value));
             setTimeOut(TIME_OUT);
+            logger.info("Waited until element visibility "+locator);
         } catch (NoSuchElementException e) {
             logger.error(e.getMessage());
         }
@@ -107,6 +110,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             setTimeOut(TIME_OUT);
             WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
             element.sendKeys(value);
+            logger.info("Waited until element visibility of"+locator+"and send the vaule = "+value);
         } catch (NoSuchElementException e) {
             logger.error(e.getMessage());
         }
@@ -131,6 +135,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
             setTimeOut(TIME_OUT);
             element.clear();
+            logger.info("Clear the element vaule "+locator);
         } catch (Exception ex) {
             logger.error(ex.getMessage());
         }
