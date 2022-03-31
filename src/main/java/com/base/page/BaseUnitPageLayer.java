@@ -135,7 +135,7 @@ public class BaseUnitPageLayer extends UnitPageLayer {
             WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
             setTimeOut(TIME_OUT);
             element.clear();
-            logger.info("Clear the element vaule "+locator);
+            logger.info("Clear the element value "+locator);
         } catch (Exception ex) {
             logger.error(ex.getMessage());
         }
