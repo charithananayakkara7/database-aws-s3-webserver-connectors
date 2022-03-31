@@ -33,14 +33,15 @@ public class SftpServerConnecter {
 
         //Connection to a SSH server
         session.connect();
-        sftpChannel = (ChannelSftp) session.openChannel("sftp");
-        sftpChannel.connect();
         if ( session != null) {
             logger.info("Sftp session created sucessfully =" +session);
 
         } else {
             logger.error("Error while connecting to sftp session =" +session);
         }
+        sftpChannel = (ChannelSftp) session.openChannel("sftp");
+        sftpChannel.connect();
+
     }
 
     //Closing Sftp Channel
