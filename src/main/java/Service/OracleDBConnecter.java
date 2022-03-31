@@ -1,12 +1,16 @@
 package Service;
 
+import common.BrowserSetup;
 import oracle.jdbc.driver.OracleDriver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
 
 public class OracleDBConnecter {
-
+    Logger logger = LogManager.getLogger(OracleDBConnecter.class);
     private String URL;
     private String Username;
     private String Password;
@@ -22,10 +26,10 @@ public class OracleDBConnecter {
         connection = DriverManager.getConnection(this.URL, this.Username, this.Password);
 
         if (connection != null) {
-            System.out.println("Database Connection established " + connection);
+            logger.info("Database Connection established " + connection);
 
         } else {
-            System.out.println("Database Connection Failed " + connection);
+           logger.error("Database Connection Failed" + connection);
         }
 
 
