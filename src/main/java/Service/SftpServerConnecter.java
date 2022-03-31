@@ -1,11 +1,14 @@
 package Service;
 
 import com.jcraft.jsch.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import static java.lang.String.format;
 
 public class SftpServerConnecter {
+    Logger logger = LogManager.getLogger(SftpServerConnecter.class);
 
     JSch jsch = new JSch();
     Session session = null;
@@ -21,47 +24,35 @@ public class SftpServerConnecter {
         Setupsftpconnection();
     }
 
-
-    //You can skip this return classes if you have already implemented project lombok
-    //Return host Name
-    public String getHostName() {
-        return hostname;
-    }
-
-    //Return user name
-    public String  getUser() {
-        return username;
-    }
-
-    //Return password
-    public String getPassword() {
-        return userpassword;
-    }
-
     //This is for creating session and sftp channel creation
     public void Setupsftpconnection() throws JSchException {
         session = jsch.getSession(username, hostname);
         session.setPassword(userpassword);
-        //As explanation in the article you can use either yes or no depend on your scenario
         session.setConfig("StrictHostKeyChecking", "no");
 
 
         //Connection to a SSH server
         session.connect();
-        System.out.println("Sftp session created sucessfully = " + session);
         sftpChannel = (ChannelSftp) session.openChannel("sftp");
         sftpChannel.connect();
-        System.out.println("Sftp channel created sucessfully =" +sftpChannel);
+        if ( session != null) {
+            logger.info("Sftp session created sucessfully =" +session);
+
+        } else {
+            logger.error("Error while connecting to sftp session =" +session);
+        }
     }
 
     //Closing Sftp Channel
     public void SftpchannelClose() {
         sftpChannel.disconnect();
+        logger.info("Sftp channel closed");
     }
 
     //Disconnects the current session
     public void SessionClose() {
         session.disconnect();
+        logger.info("Sftp session closed");
     }
 
 }
