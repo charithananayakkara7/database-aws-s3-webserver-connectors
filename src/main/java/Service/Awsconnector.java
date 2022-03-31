@@ -22,7 +22,11 @@ public class   Awsconnector {
         AmazonS3ClientBuilder builder = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCredentials));
         builder.setRegion(Regionname);
         this.s3client = builder.build();
-        logger.info("AWS S3 connection established " + s3client);
-        System.out.println("AWS S3 connection established " + s3client);
+        if (s3client != null) {
+            logger.info("AWS S3 connection established " + s3client);
+
+        } else {
+            logger.error("AWS S3 connection Failed" + s3client);
+        }
     }
 }
