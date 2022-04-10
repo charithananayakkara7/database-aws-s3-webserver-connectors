@@ -3,7 +3,7 @@
 **Description**
 This is the Java Selenium Cucumber test framework with UI API integration.This framework can be used to integrate APIs and reduce the time required for UI test automation, or it can be used as a standalone api framework.Please see the below architecture diagram for more details.
 
-More idea about service classes' use in this framework refer to the below articles:
+To get more ideas about back-end service classes' use in this framework, refer to the below articles:
 
 https://medium.com/@charithananayakkara7/access-aws-s3-bucket-files-and-integration-with-the-test-framework-78f79799ca46
 
