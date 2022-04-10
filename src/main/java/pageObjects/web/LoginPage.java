@@ -1,11 +1,8 @@
 package pageObjects.web;
-
 import com.base.page.BaseUnitPageLayer;
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 public  class LoginPage extends BaseUnitPageLayer {
     private String emailpth = "#email";
     private String passwordpth= ".user-password input";
