@@ -1,5 +1,7 @@
 # UI-API-AUTOMATION
-This is UI API integrated java selenium cucumber test framework.Please checkout the below architecture diagram.
+
+**Description**
+This is UI API integrated java selenium cucumber test framework.You can use this framework to integrate api's and reduce the time need to ui tests automation and you can use this as a seperate api framework as well.Please checkout the below architecture diagram for more details.
 
 Steps to clone and run the project -:
 1) Open intellij idea
