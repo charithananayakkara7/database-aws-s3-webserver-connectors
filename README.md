@@ -1,8 +1,6 @@
-# UI-API-AUTOMATION
-
 **Description**
 
-Steps to cloning and running the project:
+Steps :
 
 1) Git clone https://github.com/charithananayakkara7/UI-API-AUTOMATION.git
 2) Go to src/test/java/cucmber/Options
