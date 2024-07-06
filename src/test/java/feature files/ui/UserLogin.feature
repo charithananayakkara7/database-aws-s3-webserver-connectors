@@ -1,12 +1,7 @@
 Feature: Login into Application
 @regression
- Scenario Outline: Positive test validating login
-  Given Initialize the browser and redirection
- And Navigate to the Home page "<Email>"
- And close browsers
-
- Examples:
- | Email | Password  |
- |noname@gmail.com | Test123 |
-
+ Scenario: As a user I can login in to the application
+ Given I initialize the browser and redirection
+ When I log in to the appplication
+ Then I close the browser
 
