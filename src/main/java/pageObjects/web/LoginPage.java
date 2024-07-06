@@ -5,12 +5,6 @@ import org.openqa.selenium.WebDriver;
 import com.base.page.BasePageLayer;
 
 public  class LoginPage extends BasePageLayer {
-    private String emailpth = "#email";
-    private String passwordpth= ".user-password input";
-    private String submitBtnpth= ".signin-button span";
-    private String contactBtn="a[title='Contact Us']";
-    private String womentab= "a[title='Women']";
-    private String cntemailbox= "#email";
     private String logintnpth= ".login";
     private String emailField= "#email";
     private String passFiled= "#passwd";
