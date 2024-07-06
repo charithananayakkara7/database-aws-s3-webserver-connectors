@@ -1,33 +1,41 @@
 package pageObjects.web;
-import com.base.page.BaseUnitPageLayer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public  class LoginPage extends BaseUnitPageLayer {
+import com.base.page.BasePageLayer;
+
+public  class LoginPage extends BasePageLayer {
     private String emailpth = "#email";
     private String passwordpth= ".user-password input";
     private String submitBtnpth= ".signin-button span";
     private String contactBtn="a[title='Contact Us']";
     private String womentab= "a[title='Women']";
     private String cntemailbox= "#email";
+    private String logintnpth= ".login";
+    private String emailField= "#email";
+    private String passFiled= "#passwd";
+    private String loginBtn= "button[id='SubmitLogin']";
+    private String logoutBtn= ".logout";
 
     public LoginPage(WebDriver driver, int TIME_OUT) {
         super(driver,TIME_OUT);
     }
 
-    public void clickSubmitBtnn() throws Exception {
-        By btnVal= getLocator(submitBtnpth, BY_TYPE.BY_CSSSELECTOR);
-        System.out.println(getText(getLocator(emailpth, BY_TYPE.BY_CSSSELECTOR)));
+    public void clickloginBtn() throws Exception {
+        By btnVal= getLocator(logintnpth, BY_TYPE.BY_CSSSELECTOR);
         click(btnVal,11);
     }
 
-    public void clickSearchBtnn(String email) throws Exception {
-        By btnVal1= getLocator(contactBtn, BY_TYPE.BY_CSSSELECTOR);
-        By btnVal2=getLocator(womentab,BY_TYPE.BY_CSSSELECTOR);
-        By ctemailbox=getLocator(cntemailbox,BY_TYPE.BY_CSSSELECTOR);
-        click(btnVal1,10);
-        type(ctemailbox,email);
-        WaitElementPresent(btnVal2);
+    public void doLogin() throws Exception {
+        By userName= getLocator(emailField, BY_TYPE.BY_CSSSELECTOR);
+        By passWord=getLocator(passFiled,BY_TYPE.BY_CSSSELECTOR);
+        By loginsubmitBtn=getLocator( loginBtn,BY_TYPE.BY_CSSSELECTOR);
+        By signOutBtn=getLocator(logoutBtn,BY_TYPE.BY_CSSSELECTOR);
+        //ToDo change below values to take from json file
+        type( userName,"charithananayakkara7@gmail.com");
+        type( passWord,"Test1234%");
+        click(loginsubmitBtn,10);
+        WaitElementPresent(signOutBtn);
     }
 
 
