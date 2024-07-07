@@ -11,7 +11,7 @@ import com.base.page.BasePageLayer;
 import com.base.page.PageLayer;
 
 import common.BrowserSetup;
-public class BaseTest extends ApiLayer01 {
+public class BaseTest {
     public WebDriver driver;
     public PageLayer PageLayer;
     public Properties prop;
