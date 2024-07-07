@@ -22,7 +22,7 @@ public class UserLoginTest extends BaseTest {
 
     @Then("I close the browser")
     public void closeBrowser() throws Exception {
-        browserclose();
+        browserClose();
             }
 }
 
