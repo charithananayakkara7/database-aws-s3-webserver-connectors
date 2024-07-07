@@ -3,7 +3,7 @@
 Steps :
 
 1) Git clone https://github.com/charithananayakkara7/UI-API-AUTOMATION.git
-2) Go to src/test/java/cucmber/Options
+2) Navigate to src/test/java/cucumber/Options
 3) Run TestRunner.java
 4) Enable lombok from the pop-up or else use the dialog File > Settings > Compiler > Annotation Processors and turn it on.
 5) Execute the test runner class.
