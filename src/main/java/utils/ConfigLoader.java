@@ -22,10 +22,4 @@ public class ConfigLoader {
     public String getProperty(String key) {
         return properties.getProperty(key);
     }
-
-    public static void main(String[] args) {
-        ConfigLoader configLoader = new ConfigLoader("config.properties");
-        System.out.println("QA Base URL: " + configLoader.getProperty("BaseUrlQA"));
-        System.out.println("Dev Base URL: " + configLoader.getProperty("BaseUrlDev"));
-    }
 }
