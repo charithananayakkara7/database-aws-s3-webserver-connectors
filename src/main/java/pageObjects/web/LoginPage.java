@@ -25,8 +25,9 @@ public  class LoginPage extends BasePageLayer {
         By passWord=getLocator(passFiled,BY_TYPE.BY_CSSSELECTOR);
         By loginsubmitBtn=getLocator( loginBtn,BY_TYPE.BY_CSSSELECTOR);
         By signOutBtn=getLocator(logoutBtn,BY_TYPE.BY_CSSSELECTOR);
-        //ToDo change below values to take from json file/ env file
-        type( userName,"charithananayakkara7@gmail.com");
+
+        //ToDo change below values to take from json file/ env file or move to login test file
+        type( userName,"automationtest@test.com");
         type( passWord,"Test1234%");
         click(loginsubmitBtn,10);
         WaitElementPresent(signOutBtn);
