@@ -1,32 +1,49 @@
 package Service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-public class   Awsconnector {
-    Logger logger = LogManager.getLogger(Awsconnector.class);
+/**
+ * Connector class to establish connection with AWS S3.
+ */
+public class AwsConnector {
+    private static final Logger logger = LogManager.getLogger(AwsConnector.class);
     private final AmazonS3 s3client;
-    private String Accesskey;
-    private String SecretKey;
-    private String Regionname;
+    private final String accessKey;
+    private final String secretKey;
+    private final String regionName;
 
-    public Awsconnector(String Accesskey, String SecretKey, String Regionname) {
-        this.Accesskey = Accesskey;
-        this.SecretKey = SecretKey;
-        this.Regionname = Regionname;
-        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(Accesskey, SecretKey);
-        AmazonS3ClientBuilder builder = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCredentials));
-        builder.setRegion(Regionname);
-        this.s3client = builder.build();
-        if (s3client != null) {
-            logger.info("AWS S3 connection established " + s3client);
+    public AwsConnector(String accessKey, String secretKey, String regionName) {
+        this.accessKey = accessKey;
+        this.secretKey = secretKey;
+        this.regionName = regionName;
 
-        } else {
-            logger.error("AWS S3 connection Failed" + s3client);
-        }
+        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(this.accessKey, this.secretKey);
+
+        AmazonS3ClientBuilder builder = AmazonS3ClientBuilder.standard()
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+                .withRegion(this.regionName);
+
+        AmazonS3 client = null;
+        try {
+            client = builder.build();
+            logger.info("AWS S3 connection established.");
+        } catch (Exception e) {
+            logger.error("AWS S3 connection failed.", e);        }
+
+        this.s3client = client;    }
+
+    /**
+     * Returns the AmazonS3 client.
+     *
+     * @return the AmazonS3 client
+     */
+    public AmazonS3 getS3client() {
+        return s3client;
     }
 }
