@@ -1,4 +1,5 @@
 **Description**
+This is a UI API testing automation framework with Selenium using OOP concepts and various creational design patterns like the factory method, singleton, builder pattern, abstract factory pattern, etc.
 
 Steps :
 
