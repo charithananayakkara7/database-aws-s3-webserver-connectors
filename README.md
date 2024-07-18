@@ -1,5 +1,7 @@
 **Description**
-This is a UI API testing automation framework with Selenium using OOP concepts and various creational design patterns like the factory method pattern, singleton pattern, builder pattern, abstract factory pattern, page object model pattern etc.
+This is a UI API testing automation framework with Selenium using OOP concepts and various creational design patterns like the factory method pattern, singleton pattern, builder pattern, abstract factory pattern, page object model pattern, etc.
+
+Other than that, this framework will mainly focus on managing connections with databases, AWS, and web servers.
 
 Steps :
 
