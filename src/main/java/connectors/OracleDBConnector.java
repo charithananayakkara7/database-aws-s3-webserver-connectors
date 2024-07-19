@@ -1,17 +1,11 @@
 package connectors;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import oracle.jdbc.driver.OracleDriver;
 
-/**
- * Connector class to establish a connection with Oracle Database.
- */
 public class OracleDBConnector {
     private static final Logger logger = LogManager.getLogger(OracleDBConnector.class);
     
@@ -28,11 +22,6 @@ public class OracleDBConnector {
         connect();
     }
 
-    /**
-     * Establishes a connection to the database.
-     *
-     * @throws SQLException if a database access error occurs
-     */
     private void connect() throws SQLException {
         try {
             DriverManager.registerDriver(new OracleDriver());
@@ -48,18 +37,10 @@ public class OracleDBConnector {
         }
     }
 
-    /**
-     * Returns the database connection.
-     *
-     * @return the database connection
-     */
     public Connection getConnection() {
         return connection;
     }
 
-    /**
-     * Closes the database connection.
-     */
     public void closeConnection() {
         if (connection != null) {
             try {
