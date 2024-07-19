@@ -8,9 +8,6 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
-/**
- * Connector class to establish connection with AWS S3.
- */
 public class AwsConnector {
     private static final Logger logger = LogManager.getLogger(AwsConnector.class);
     private final AmazonS3 s3client;
@@ -38,11 +35,7 @@ public class AwsConnector {
 
         this.s3client = client;    }
 
-    /**
-     * Returns the AmazonS3 client.
-     *
-     * @return the AmazonS3 client
-     */
+   
     public AmazonS3 getS3client() {
         return s3client;
     }
