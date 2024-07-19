@@ -1,15 +1,11 @@
 package connectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
-/**
- * Connector class to establish a connection with an SFTP server.
- */
 public class SftpServerConnector {
     private static final Logger logger = LogManager.getLogger(SftpServerConnector.class);
 
@@ -29,11 +25,7 @@ public class SftpServerConnector {
         setupSftpConnection();
     }
 
-    /**
-     * Sets up the SFTP connection by establishing a session and opening an SFTP channel.
-     *
-     * @throws JSchException if a connection error occurs
-     */
+ 
     private void setupSftpConnection() throws JSchException {
         try {
             session = jsch.getSession(username, hostname);
@@ -64,9 +56,7 @@ public class SftpServerConnector {
         }
     }
 
-    /**
-     * Closes the SFTP channel.
-     */
+
     public void closeSftpChannel() {
         if (sftpChannel != null && sftpChannel.isConnected()) {
             sftpChannel.disconnect();
@@ -74,9 +64,6 @@ public class SftpServerConnector {
         }
     }
 
-    /**
-     * Disconnects the current session.
-     */
     public void closeSession() {
         if (session != null && session.isConnected()) {
             session.disconnect();
