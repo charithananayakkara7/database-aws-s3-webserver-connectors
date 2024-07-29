@@ -1,5 +1,5 @@
 **Description**
-This is a backend service testing automation framework with Selenium using OOP concepts and various creational design patterns.This backend-end connection would help if your team does not have access to the downstream application or upstream application but is expected to receive files to process in your application and deliver your application output to another AWS S3 locations or the webserver.
+This is a backend service testing automation framework with Selenium using OOP concepts and various creational design patterns like the factory method pattern, singleton pattern, builder pattern, abstract factory pattern, page object model pattern, etc.This backend-end connection would help if your team does not have access to the downstream application or upstream application but is expected to receive files to process in your application and deliver your application output to another AWS S3 locations or the webserver.
 
 Other than that, this framework will mainly focus on managing connections with databases, AWS, and web servers.
 
